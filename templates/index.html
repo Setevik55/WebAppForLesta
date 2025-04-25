@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <style>
+        body {
+            background-image: url('/static/dark-squares.png'); 
+            background-size: 55px; 
+            background-position: center;
+            margin: 0; /* убираем отступ по умолчанию */
+            height: 100vh; /* 100% заполнение по высоте */
+            display: flex; /* гибкое и адаптивное расположение элементов в контейнере */
+            align-items: center; /* выравниваем элементы по вертикали */
+            justify-content: center; /* по горизонтали в центре контейнера */
+            color: rgb(240, 240, 240);
+            font-family: Verdana, sans-serif;
+        }
+        .header {
+            position: fixed; /* Фиксируем шапку вверху */
+            top: 0; /* верхняя граница элемента */
+            left: 0; /* левая граница  */
+            width: 100%; /* ширина на странице  */
+			background-color: rgba(15, 15, 15, 0.8); 
+            padding: 35px; /* толщина */
+            z-index: 1000; /* порядок наложения элемента поверх других */
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Выравниваем элементы по горизонтали */
+        }
+        h1 {
+            position: absolute; /* будет размещаться на основе указанных координат */
+            margin: 0; 
+			top: 20px; 
+            left: 12%; 
+            font-size: 20px; /* размер шрифта */
+        }
+        .nav-link-main-page {
+            position: absolute; 
+			margin: 0; 
+			top: 20px; 
+            left: 74%; 
+			color: white; /* Цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            font-size: 16px;
+            padding: 5px 10px; /* Отступы внутри кнопки */
+            border-radius: 5px; /* Скругление углов */
+            background-color: rgba(255, 255, 255, 0.1);
+			transition: background-color 0.3s; /* Плавный переход цвета фона */
+        }
+        .nav-link-main-page:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Эффект при наведении */
+        }
+		.nav-link-resume {
+            position: absolute;
+            margin: 0;
+			top: 20px;
+            left: 84%;
+			color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+			transition: background-color 0.3s;
+        }
+        .nav-link-resume:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        form {
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 40px 50px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        input[type="file"] {
+            margin-bottom: 10px; /* Отступ вниз от выбора файла */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2c722e;
+            color: white;
+            border: none; /* без рамки */
+            border-radius: 5px;
+            cursor: pointer; /* меняет курсор как при наведение на ссылку */
+            font-size: 14px;
+			transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #109114;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <div class="header">
+        <h1>Тестовое задание для Lesta Games</h1>
+	<div>
+			<a class="nav-link-main-page" href="/">Главная</a>
+			<a class="nav-link-resume" href="https://spb.hh.ru/resume/6e0efcf1ff0cb33b5e0039ed1f386761634e69" target="_blank">Резюме</a>
+		</div>
+	</div>
+    <!-- Форма загрузки файла -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".txt" required>
+        <br><br>
+        <button type="submit">Загрузить</button>
+    </form>
+</body>
+</html>
